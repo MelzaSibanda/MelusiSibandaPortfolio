@@ -84,7 +84,7 @@ export function GalaxyContact() {
               Download or view my curriculum vitae to learn more about my experience and qualifications.
             </p>
             <motion.a
-              href="src/assets/Melusi_Sibanda_Resume_I.pdf"
+              href="/assets/Melusi_Sibanda_Resume_I.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

@@ -4,20 +4,20 @@ import { Trophy, Award, Medal, Star } from 'lucide-react';
 
 export function GalaxyAchievements() {
   const achievements = [
-
 {
+
   title: 'SAP FI Training – Mentec Foundation (2024)',
   description: 'Completed specialized SAP Financial Accounting training, demonstrating strong understanding of enterprise financial systems.',
   icon: Star,
   gradient: 'from-blue-500/20 to-indigo-500/20',
-  image: 'src/assets/SAP.pdf'
+  image: '/assets/SAP.pdf'
 },
 {
   title: 'Certificate of Diploma in ICT in Applications Development (2025)',
   description: 'Successfully completed a comprehensive diploma focused on software development, database systems, networking, and application design, gaining strong practical skills in building real-world applications and modern ICT solutions.',
   icon: Star,
   gradient: 'from-green-500/20 to-emerald-500/20',
-  image: 'src/assets/Melza Diploma cert.pdf'
+  image: '/assets/Melza Diploma cert.pdf'
 },
 
 {
@@ -25,28 +25,28 @@ export function GalaxyAchievements() {
   description: 'Earned a full-stack development certification focusing on building scalable, modern web apps with industry standards.',
   icon: Star,
   gradient: 'from-yellow-500/20 to-orange-500/20',
-  image: 'src/assets/FNBAcademy.pdf'
+  image: '/assets/FNBAcademy.pdf'
 },
 {
   title: 'Microsoft 365 Certified: Fundamentals',
   description: 'Achieved certification in foundational Microsoft 365 competencies including cloud productivity and collaboration tools.',
   icon: Star,
   gradient: 'from-teal-500/20 to-cyan-500/20',
-  image: 'src/assets/Fundementals.pdf'
+  image: '/assets/Fundementals.pdf'
 },
 {
   title: 'Microsoft Certified: Security, Compliance & Identity (SC-900)',
   description: 'Certified in core security, compliance, and identity principles across Microsoft cloud services.',
   icon: Star,
   gradient: 'from-indigo-500/20 to-violet-500/20',
-  image: 'src/assets/Security.pdf'
+  image: '/assets/Security.pdf'
 },
 {
   title: 'Microsoft AI Fluency Certification',
   description: 'Completed Microsoft’s AI Fluency program, demonstrating strong understanding of AI concepts, ethics, and real-world applications.',
   icon: Star,
   gradient: 'from-pink-500/20 to-rose-500/20',
-  image: 'src/assets/AIFluencyCertificate.pdf'
+  image: '/assets/AIFluencyCertificate.pdf'
 }
   ];
 
