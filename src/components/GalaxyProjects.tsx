@@ -1,8 +1,6 @@
 import { ContentPanel, HolographicTitle } from './ContentPanel';
 import { motion } from 'motion/react';
 import { ExternalLink, Github, MapPin, Code, Smartphone, Bug, Ticket, Leaf, Hospital } from 'lucide-react';
-import { useState } from 'react';
-import { Dialog, DialogContent } from './ui/dialog';
 
 type Project = {
   title: string;
@@ -15,8 +13,6 @@ type Project = {
 };
 
 export function GalaxyProjects() {
-  const [showVideo, setShowVideo] = useState(false);
-
   const projects = [
     {
       title: 'Egumeni Eats ',
@@ -141,7 +137,6 @@ export function GalaxyProjects() {
                   </motion.a>
                 ) : (
                   <motion.button
-                    onClick={project.title === 'Mpumalanga Tourism Appilcation' ? () => setShowVideo(true) : undefined}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2
@@ -197,14 +192,6 @@ export function GalaxyProjects() {
         ))}
       </div>
 
-      <Dialog open={showVideo} onOpenChange={setShowVideo}>
-        <DialogContent className="max-w-4xl">
-          <video controls className="w-full">
-            <source src="src/assets/TourismAppVid.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </DialogContent>
-      </Dialog>
     </ContentPanel>
   );
 }
