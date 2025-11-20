@@ -1,6 +1,6 @@
 import { ContentPanel, HolographicTitle } from './ContentPanel';
 import { motion } from 'motion/react';
-import { ExternalLink, Github, MapPin, Code, Smartphone, Bug, Ticket, Leaf, Hospital } from 'lucide-react';
+import { ExternalLink, Github, MapPin, Code, Smartphone, Bug, Ticket, Leaf, Hospital, Sparkles } from 'lucide-react';
 
 type Project = {
   title: string;
@@ -24,6 +24,24 @@ export function GalaxyProjects() {
       github:'https://github.com/MelzaSibanda/hotel-ordering-system.git'
     },
     {
+  title: 'Your Look – Beauty Service Platform',
+  description: 'A modern beauty-service platform enabling users to browse beauty professionals, book appointments, and manage beauty service experiences seamlessly.',
+  tech: ['React', 'TypeScript', 'Tailwind CSS'],
+  icon: Sparkles,
+  gradient: 'from-pink-500/20 to-purple-500/20'
+  link:'https://your-look-beauty-platform.onrender.com',
+  github:'https://github.com/MelzaSibanda/YourLookBeauty.git'
+},
+{
+      title: 'AgriNathi – Farming Solution System',
+      description: 'A smart agriculture management system assisting farmers with crop monitoring, resource planning, and data-informed insights.',
+      tech: ['React', 'Firebase', 'Python'],
+      icon: Leaf,
+      gradient: 'from-green-500/20 to-emerald-500/20',
+      link: 'https://agrinathiapp.onrender.com//',
+      github:'https://github.com/MelzaSibanda/AgriNathi.git'
+    },
+    {
       title: 'Mpumalanga Tourism Appilcation',
       description: 'Android application providing comprehensive tourism information for Mpumalanga province, featuring interactive maps, attractions, and travel guides.',
       tech: ['Android', 'Kotlin', 'Firebase'],
@@ -31,6 +49,7 @@ export function GalaxyProjects() {
       gradient: 'from-teal-500/20 to-cyan-500/20',
       github: 'https://github.com/MelzaSibanda/MpumalangaTourism.git'
     },
+    
     {
       title: 'Bug Tracking System – Error Handling Tool',
       description: 'A web-based platform for reporting, tracking, and managing software bugs to enhance development quality and streamline team collaboration.',
@@ -42,18 +61,11 @@ export function GalaxyProjects() {
     {
       title: 'Ticketing System – Event Management Platform',
       description: 'A complete event ticketing solution for creating, selling, and managing tickets with real-time monitoring and smooth user experiences.',
-      tech: ['PHP', 'MySQL', 'Bootstrap'],
+      tech: ['PHP', 'MySQL', 'Java'],
       icon: Ticket,
       gradient: 'from-blue-500/20 to-cyan-500/20'
     },
-    {
-      title: 'AgriNathi – Farming Solution System',
-      description: 'A smart agriculture management system assisting farmers with crop monitoring, resource planning, and data-informed insights.',
-      tech: ['React', 'Firebase', 'Python'],
-      icon: Leaf,
-      gradient: 'from-green-500/20 to-emerald-500/20',
-      github:'https://github.com/MelzaSibanda/AgriNathi.git'
-    },
+    
     {
       title: 'ICurate – Hospital Administration System',
       description: 'A healthcare management platform focused on digital patient records, appointment scheduling, and automation of administrative tasks.',
