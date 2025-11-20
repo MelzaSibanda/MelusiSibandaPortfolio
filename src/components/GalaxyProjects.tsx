@@ -28,7 +28,7 @@ export function GalaxyProjects() {
   description: 'A modern beauty-service platform enabling users to browse beauty professionals, book appointments, and manage beauty service experiences seamlessly.',
   tech: ['React', 'TypeScript', 'Tailwind CSS'],
   icon: Sparkles,
-  gradient: 'from-pink-500/20 to-purple-500/20'
+  gradient: 'from-pink-500/20 to-purple-500/20',
   link:'https://your-look-beauty-platform.onrender.com',
   github:'https://github.com/MelzaSibanda/YourLookBeauty.git'
 },
