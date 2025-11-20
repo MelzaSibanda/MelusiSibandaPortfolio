@@ -94,8 +94,8 @@ export function GalaxyProjects() {
             className={`relative group rounded-2xl bg-gradient-to-br ${project.gradient} p-[2px] overflow-hidden`}
           >
             {/* Card content */}
-            <div className="relative h-full bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6 
-              border border-slate-700/50 group-hover:border-teal-400/50 transition-all duration-300"
+            <div className="relative h-full bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6
+              border border-slate-700/50 group-hover:border-teal-400/50 transition-all duration-300 flex flex-col"
             >
               {/* Project icon */}
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-500/20 to-purple-500/20 
