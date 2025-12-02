@@ -47,6 +47,13 @@ export function GalaxyAchievements() {
   icon: Star,
   gradient: 'from-pink-500/20 to-rose-500/20',
   image: '/assets/AIFluencyCertificate.pdf'
+},
+{
+  title: 'Microsoft MS-102 – Microsoft 365 Administrator ',
+  description: 'Successfully completed the MS-102 certification, showcasing strong skills in Microsoft 365 administration, identity management, security, and organizational cloud services.',
+  icon: Star,
+  gradient: 'from-green-500/20 to-emerald-500/20',
+  image: '/assets/Ms102.pdf'
 }
   ];
 
@@ -54,7 +61,7 @@ export function GalaxyAchievements() {
     <ContentPanel delay={0.5}>
       <HolographicTitle>ACHIEVEMENTS</HolographicTitle>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {achievements.map((achievement, index) => (
           <motion.div
             key={index}
@@ -68,8 +75,8 @@ export function GalaxyAchievements() {
             className={`relative group rounded-2xl bg-gradient-to-br ${achievement.gradient} p-[2px] overflow-hidden`}
           >
             {/* Card content */}
-            <div className="relative h-full bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6
-              border border-slate-700/50 group-hover:border-teal-400/50 transition-all duration-300"
+            <div className="relative h-full min-h-[400px] bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6
+              border border-slate-700/50 group-hover:border-teal-400/50 transition-all duration-300 flex flex-col"
             >
               {/* Achievement image */}
               <a href={achievement.image} target="_blank" rel="noopener noreferrer" className="block">
@@ -106,7 +113,7 @@ export function GalaxyAchievements() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed flex-grow">
                 {achievement.description}
               </p>
 

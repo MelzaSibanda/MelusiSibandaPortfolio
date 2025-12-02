@@ -80,7 +80,7 @@ export function GalaxyProjects() {
     <ContentPanel delay={0.4}>
       <HolographicTitle>PROJECTS</HolographicTitle>
       
-      <div className="grid md:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -94,7 +94,7 @@ export function GalaxyProjects() {
             className={`relative group rounded-2xl bg-gradient-to-br ${project.gradient} p-[2px] overflow-hidden`}
           >
             {/* Card content */}
-            <div className="relative h-full bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6
+            <div className="relative h-full min-h-[400px] bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6
               border border-slate-700/50 group-hover:border-teal-400/50 transition-all duration-300 flex flex-col"
             >
               {/* Project icon */}
@@ -114,7 +114,7 @@ export function GalaxyProjects() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
                 {project.description}
               </p>
 
