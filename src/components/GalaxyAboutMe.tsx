@@ -20,7 +20,7 @@ export function GalaxyAboutMe() {
         transition={{ delay: 0.5, duration: 0.8 }}
         className="text-gray-300 leading-relaxed text-lg mt-6 mb-8"
       >
-        As a passionate and driven IT professional with hands-on experience as a Software Development Intern, I bring a strong foundation in modern programming languages, web technologies, and system design principles. Having successfully completed my Advanced Diploma in ICT in Applications Development, along with multiple industry certifications and participation in competitive hackathons, I have developed both the academic depth and practical expertise needed to build impactful digital solutions. My work is guided by a user-centric mindset, ensuring that every application I develop is functional, intuitive, and visually compelling. With proven strengths in leadership, analytical thinking, and problem-solving, I am committed to delivering high-quality software solutions that enhance user experience, optimize performance, and contribute meaningfully to organizational success.</motion.p>
+        I'm a software developer who turns complex problems into clean, scalable solutions. Armed with an Advanced Diploma in ICT (Applications Development) and real-world internship experience, I build full-stack applications that don't just work — they perform. From hackathon sprints to production deployments, I've developed a sharp eye for user experience, a deep respect for clean code, and a relentless drive to ship things that matter.</motion.p>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
         {highlights.map((highlight, index) => (

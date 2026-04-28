@@ -1,0 +1,104 @@
+/* ─── Scanline / Noise cinematic overlay ─────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.025) 2px,
+    rgba(0, 0, 0, 0.025) 4px
+  );
+}
+
+/* ─── Typewriter cursor blink ────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typewriter-cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Gradient orb breathing ─────────────────────────────────────────────── */
+@keyframes orbBreathe {
+  0%, 100% { transform: scale(1);   opacity: 0.6; }
+  50%       { transform: scale(1.2); opacity: 0.9; }
+}
+
+/* ─── Scroll chevron bounce ──────────────────────────────────────────────── */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0);    opacity: 0.7; }
+  50%       { transform: translateY(8px); opacity: 1;   }
+}
+.scroll-bounce {
+  animation: scrollBounce 1.6s ease-in-out infinite;
+}
+
+/* ─── Tooltip (nav orbs) ──────────────────────────────────────────────────── */
+.nav-tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  background: rgba(10, 15, 30, 0.95);
+  border: 1px solid rgba(20, 184, 166, 0.45);
+  color: #e2e8f0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 14px rgba(20, 184, 166, 0.25);
+}
+.nav-tooltip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: rgba(20, 184, 166, 0.45);
+}
+.nav-orb-group:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+/* ─── Skills progress bar shimmer ────────────────────────────────────────── */
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: var(--progress-width); }
+}
+.skill-progress-bar {
+  animation: progressFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ─── Timeline connector line ───────────────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, rgba(20, 184, 166, 0.5) 15%, rgba(20, 184, 166, 0.5) 85%, transparent);
+}
+
+/* ─── prefers-reduced-motion: honour system preference ──────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .typewriter-cursor   { animation: none; opacity: 1; }
+  .scroll-bounce       { animation: none; }
+  .skill-progress-bar  { animation: none; width: var(--progress-width); }
+}

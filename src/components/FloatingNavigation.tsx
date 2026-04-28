@@ -8,19 +8,19 @@ interface FloatingNavigationProps {
   onNavigate?: (section: string) => void;
 }
 
+const NAV_ITEMS = [
+  { id: 'home',         path: '/',             icon: Home,     label: 'Home',         color: 'teal'   },
+  { id: 'about',        path: '/about',         icon: User,     label: 'About',        color: 'purple' },
+  { id: 'skills',       path: '/skills',        icon: Code,     label: 'Skills',       color: 'blue'   },
+  { id: 'projects',     path: '/projects',      icon: Briefcase,label: 'Projects',     color: 'pink'   },
+  { id: 'achievements', path: '/achievements',  icon: Trophy,   label: 'Achievements', color: 'yellow' },
+  { id: 'contact',      path: '/contact',       icon: Mail,     label: 'Contact',      color: 'teal'   },
+];
+
 export function FloatingNavigation({ onNavigate }: FloatingNavigationProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const navItems = [
-    { id: 'home', path: '/', icon: Home, label: 'Home', color: 'teal' },
-    { id: 'about', path: '/about', icon: User, label: 'About', color: 'purple' },
-    { id: 'skills', path: '/skills', icon: Code, label: 'Skills', color: 'blue' },
-    { id: 'projects', path: '/projects', icon: Briefcase, label: 'Projects', color: 'pink' },
-    { id: 'achievements', path: '/achievements', icon: Trophy, label: 'Achievements', color: 'yellow' },
-    { id: 'contact', path: '/contact', icon: Mail, label: 'Contact', color: 'teal' }
-  ];
+  const navigate  = useNavigate();
+  const location  = useLocation();
 
   const handleNavigate = (path: string) => {
     navigate(path);
@@ -29,66 +29,66 @@ export function FloatingNavigation({ onNavigate }: FloatingNavigationProps) {
 
   return (
     <>
-      {/* Mobile toggle button */}
+      {/* Mobile toggle */}
       <motion.button
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full 
+        onClick={() => setIsExpanded(v => !v)}
+        className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full
           bg-gradient-to-br from-teal-500/80 to-cyan-500/80 backdrop-blur-sm
           border-2 border-teal-400/50 flex items-center justify-center
           md:hidden shadow-2xl"
-        style={{
-          boxShadow: '0 0 30px rgba(20, 184, 166, 0.5)'
-        }}
+        style={{ boxShadow: '0 0 30px rgba(20,184,166,0.5)' }}
+        aria-label="Toggle navigation"
       >
         {isExpanded ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
       </motion.button>
 
-      {/* Desktop navigation - always visible */}
+      {/* Desktop — floating right column */}
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-40
-          flex-col gap-2"
+        className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-2"
       >
-        {navItems.map((item, index) => (
+        {NAV_ITEMS.map((item, index) => (
           <NavigationOrb
             key={item.id}
             icon={item.icon}
             label={item.label}
             color={item.color}
+            isActive={location.pathname === item.path}
             onClick={() => onNavigate ? onNavigate(item.id) : handleNavigate(item.path)}
             delay={0.7 + index * 0.1}
           />
         ))}
       </motion.div>
 
-      {/* Mobile navigation - expandable */}
+      {/* Mobile — fullscreen overlay */}
       <AnimatePresence>
         {isExpanded && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed inset-0 z-40 md:hidden backdrop-blur-xl bg-slate-900/80
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="fixed inset-0 z-40 md:hidden backdrop-blur-xl bg-slate-900/85
               flex items-center justify-center"
           >
             <div className="grid grid-cols-2 gap-6 p-8">
-              {navItems.map((item, index) => (
+              {NAV_ITEMS.map((item, index) => (
                 <NavigationOrb
                   key={item.id}
                   icon={item.icon}
                   label={item.label}
                   color={item.color}
+                  isActive={location.pathname === item.path}
                   onClick={() => {
                     onNavigate ? onNavigate(item.id) : handleNavigate(item.path);
                     setIsExpanded(false);
                   }}
-                  delay={index * 0.1}
+                  delay={index * 0.08}
                 />
               ))}
             </div>
