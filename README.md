@@ -61,8 +61,8 @@ The bundle visualiser shows React and React Router dominate the remaining entry.
 
 ## Render setup
 
-1. Deploy `modernise-portfolio` as a Render Static Site using [render.yaml](render.yaml). For an existing service configured through the dashboard, mirror the build command, publish directory, headers, environment variables and routes from the Blueprint. A web service needs a new Static Site to migrate.
-2. Use `SITE_URL=https://melusi-sibanda-portfolio.onrender.com` for the verified Render site. If you attach a custom domain, verify its DNS and TLS in Render, update `SITE_URL` and the Blueprint, then rebuild. Confirm the canonical URLs, share image and sitemap match the public origin.
+1. Deploy `master` as a Render Static Site using [render.yaml](render.yaml). For an existing service configured through the dashboard, mirror the build command, publish directory, headers and routes from the Blueprint. A web service needs a new Static Site to migrate.
+2. Render builds use the service's public `onrender.com` URL automatically when `SITE_URL` is unset. If you attach a custom domain, verify its DNS and TLS in Render, set `SITE_URL` to that origin, then rebuild. Confirm the canonical URLs, share image and sitemap match the public origin. [Render environment variables](https://render.com/docs/environment-variables)
 3. Smoke-test a direct request to `/projects` and an unknown URL on the deployed host. The static fallback serves the `noindex` error page through a rewrite, so the response can be HTTP 200. [Render rewrite rules](https://render.com/docs/redirects-rewrites)
 
 ## Content to review

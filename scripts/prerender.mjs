@@ -2,7 +2,9 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { loadEnv } from 'vite';
 import { paths, render } from '../.ssr/entry-static.js';
 
-const value = loadEnv('production', process.cwd(), '').SITE_URL;
+const isRender = process.env.RENDER === 'true';
+const configuredUrl = loadEnv('production', process.cwd(), '').SITE_URL;
+const value = configuredUrl || (isRender ? process.env.RENDER_EXTERNAL_URL : '');
 const origin = value ? new URL(value).origin : '';
 if (
   value &&
@@ -10,8 +12,8 @@ if (
 ) {
   throw new Error('SITE_URL must be a public HTTPS origin without a path.');
 }
-if (!origin && process.env.RENDER === 'true')
-  throw new Error('Set SITE_URL in Render.');
+if (!origin && isRender)
+  throw new Error('Render did not provide RENDER_EXTERNAL_URL. Set SITE_URL.');
 const template = await readFile('dist/index.html', 'utf8');
 const escape = (s) =>
   s.replace(
