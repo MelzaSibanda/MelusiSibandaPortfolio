@@ -16,6 +16,8 @@ test('navigates at 320px, validates contact and shows an unknown-route page', as
   await expect(
     page.getByRole('link', { name: 'Skip to content' }),
   ).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('main')).toBeFocused();
   await page.getByRole('button', { name: 'Open navigation' }).click();
   await page
     .getByRole('navigation')
@@ -57,6 +59,10 @@ test('serves recruiter content and navigation without JavaScript', async ({
   await page.getByRole('link', { name: 'View projects' }).click();
   await expect(
     page.getByRole('heading', { name: 'Egumeni Eats' }),
+  ).toBeVisible();
+  await page.goto('/404.html');
+  await expect(
+    page.getByRole('heading', { level: 1, name: 'Page not found' }),
   ).toBeVisible();
   await page.close();
 });

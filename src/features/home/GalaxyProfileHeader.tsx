@@ -15,7 +15,7 @@ export function GalaxyProfileHeader() {
       </div>
       <h1>Melusi Sibanda</h1>
       <p className="hero-role">Full Stack Developer</p>
-      <p>Exploring the Digital Universe • Creating Tomorrow's Solutions</p>
+      <p>I turn complex problems into clean, scalable solutions.</p>
       <p>South Africa</p>
       <div className="hero-actions">
         <Link className="portfolio-button primary" to="/projects">
@@ -34,6 +34,9 @@ export function GalaxyProfileHeader() {
       </div>
       <p className="hero-specialties">
         UI/UX Engineer · Open Source Builder · Problem Solver
+      </p>
+      <p className="hero-specialties">
+        Exploring the Digital Universe • Creating Tomorrow's Solutions
       </p>
     </header>
   );

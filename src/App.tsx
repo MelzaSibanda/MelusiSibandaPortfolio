@@ -48,7 +48,7 @@ export default function App({
 }: {
   initial?: { pathname: string; Page: ComponentType };
 }) {
-  const { pathname, key } = useLocation();
+  const { pathname } = useLocation();
   const page = getPage(pathname);
   const Page =
     initial?.pathname === pathname ? initial.Page : lazyPages.get(page)!;
@@ -82,7 +82,7 @@ export default function App({
       main.current?.focus({ preventScroll: true });
     }
     first.current = false;
-  }, [key, page, pathname]);
+  }, [page, pathname]);
 
   return (
     <StandalonePage.Provider value={page !== pages['/']}>
