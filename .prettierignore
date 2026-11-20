@@ -1,0 +1,7 @@
+dist/
+.ssr/
+.lighthouseci/
+playwright-report/
+test-results/
+bundle-stats.html
+package-lock.json

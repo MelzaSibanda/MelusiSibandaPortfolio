@@ -1,100 +1,48 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { NavigationOrb } from './NavigationOrb';
-import { User, Briefcase, Code, Mail, Home, Menu, X, Trophy } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+﻿import { useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { pages } from '../routes';
 
-interface FloatingNavigationProps {
-  onNavigate?: (section: string) => void;
-}
+export function FloatingNavigation() {
+  const [expanded, setExpanded] = useState(false);
+  const button = useRef<HTMLButtonElement>(null);
 
-const NAV_ITEMS = [
-  { id: 'home',         path: '/',             icon: Home,     label: 'Home',         color: 'teal'   },
-  { id: 'about',        path: '/about',         icon: User,     label: 'About',        color: 'purple' },
-  { id: 'skills',       path: '/skills',        icon: Code,     label: 'Skills',       color: 'blue'   },
-  { id: 'projects',     path: '/projects',      icon: Briefcase,label: 'Projects',     color: 'pink'   },
-  { id: 'achievements', path: '/achievements',  icon: Trophy,   label: 'Achievements', color: 'yellow' },
-  { id: 'contact',      path: '/contact',       icon: Mail,     label: 'Contact',      color: 'teal'   },
-];
-
-export function FloatingNavigation({ onNavigate }: FloatingNavigationProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const navigate  = useNavigate();
-  const location  = useLocation();
-
-  const handleNavigate = (path: string) => {
-    navigate(path);
-    setIsExpanded(false);
-  };
+  useEffect(() => {
+    if (!expanded) return;
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+      setExpanded(false);
+      button.current?.focus();
+    }
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [expanded]);
 
   return (
-    <>
-      {/* Mobile toggle */}
-      <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => setIsExpanded(v => !v)}
-        className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full
-          bg-gradient-to-br from-teal-500/80 to-cyan-500/80 backdrop-blur-sm
-          border-2 border-teal-400/50 flex items-center justify-center
-          md:hidden shadow-2xl"
-        style={{ boxShadow: '0 0 30px rgba(20,184,166,0.5)' }}
-        aria-label="Toggle navigation"
+    <header className="site-header">
+      <button
+        ref={button}
+        type="button"
+        className="nav-toggle"
+        aria-label={expanded ? 'Close navigation' : 'Open navigation'}
+        aria-expanded={expanded}
+        aria-controls="primary-navigation"
+        onClick={() => setExpanded(!expanded)}
       >
-        {isExpanded ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
-      </motion.button>
-
-      {/* Desktop — floating right column */}
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-2"
+        {expanded ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </button>
+      <nav
+        id="primary-navigation"
+        aria-label="Primary"
+        data-expanded={expanded}
       >
-        {NAV_ITEMS.map((item, index) => (
-          <NavigationOrb
-            key={item.id}
-            icon={item.icon}
-            label={item.label}
-            color={item.color}
-            isActive={location.pathname === item.path}
-            onClick={() => onNavigate ? onNavigate(item.id) : handleNavigate(item.path)}
-            delay={0.7 + index * 0.1}
-          />
+        {Object.entries(pages).map(([path, { label }]) => (
+          <NavLink key={path} to={path} end onClick={() => setExpanded(false)}>
+            {label}
+          </NavLink>
         ))}
-      </motion.div>
-
-      {/* Mobile — fullscreen overlay */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed inset-0 z-40 md:hidden backdrop-blur-xl bg-slate-900/85
-              flex items-center justify-center"
-          >
-            <div className="grid grid-cols-2 gap-6 p-8">
-              {NAV_ITEMS.map((item, index) => (
-                <NavigationOrb
-                  key={item.id}
-                  icon={item.icon}
-                  label={item.label}
-                  color={item.color}
-                  isActive={location.pathname === item.path}
-                  onClick={() => {
-                    onNavigate ? onNavigate(item.id) : handleNavigate(item.path);
-                    setIsExpanded(false);
-                  }}
-                  delay={index * 0.08}
-                />
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      </nav>
+    </header>
   );
 }

@@ -1,8 +1,8 @@
-import { GalaxyContact } from '../components/GalaxyContact';
+import { GalaxyContact } from '../features/contact/GalaxyContact';
 
 export function Contact() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-20">
+    <div className="flex items-center justify-center px-4 py-8">
       <div className="max-w-6xl w-full">
         <GalaxyContact />
       </div>

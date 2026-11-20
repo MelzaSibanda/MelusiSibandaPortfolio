@@ -1,8 +1,8 @@
-import { GalaxySkills } from '../components/GalaxySkills';
+import { GalaxySkills } from '../features/skills/GalaxySkills';
 
 export function Skills() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-20">
+    <div className="flex items-center justify-center px-4 py-8">
       <div className="max-w-6xl w-full">
         <GalaxySkills />
       </div>

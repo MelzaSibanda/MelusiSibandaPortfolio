@@ -1,1 +1,10 @@
-node_modules
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+.ssr/
+.lighthouseci/
+playwright-report/
+test-results/
+bundle-stats.html
