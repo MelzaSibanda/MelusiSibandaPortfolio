@@ -1,0 +1,9 @@
+﻿# Portfolio audit
+
+- **Stack** — React 18, TypeScript (strict configured, no type-check script), Vite 6, React Router lazy pages, generated Tailwind CSS plus custom CSS, Motion, Lucide, and EmailJS. There is no Firebase SDK, initialization, rules file, or Firebase write path in this checkout. Firebase appears in portfolio content.
+- **High** — Baseline npm audit reported 9 high and 1 moderate vulnerable packages. Contact depended on optional EmailJS build variables and had no operational fallback. A scan for common credential markers found no matching configuration or private keys in tracked source or history. The chosen contact fallback uses the visitor's email application and removes the anonymous submission endpoint.
+- **High** — The hero portrait was 9,504 kB. The initial JS entry was 308.61 kB raw / 101.68 kB gzip. Continuous canvas and decorative animation competed with the first render.
+- **High** — JS-only HTML, an unverified canonical origin, missing share image, and a catch-all redirect to Home. Build-time React rendering preserves the existing pages and allows static hosting.
+- **Medium** — Missing skip link, delayed primary content, duplicate hero h1, inaccessible mobile navigation state, and unlabeled contact fields.
+- **Medium** — No tracked Render configuration, repeatable quality checks, or mobile performance budgets. No external web fonts were in use, so the system stack needs no font download.
+- **Content review** — Confirm the public origin, verify older certifications and project links, and supply approved screenshots and attributable project roles/outcomes where missing. Existing claims and the working-copy CV are preserved.
