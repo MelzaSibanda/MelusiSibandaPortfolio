@@ -71,4 +71,4 @@ The bundle visualiser shows React and React Router dominate the remaining entry.
 - Egumeni Eats loads publicly. Its logo did not render during review. AgriNathi opens a sign-in screen.
 - The Mpumalanga Tourism GitHub link returned HTTP 404. Confirm its visibility or provide the correct URL.
 - Add project roles, attributable outcomes or metrics, and approved screenshots for the remaining cards when available. Existing claims were preserved.
-- Review older certifications for currency. The existing tracked CV is linked at `/assets/Melusi_Sibanda_CV.pdf`. The newer working-copy PDF was preserved outside these commits and should be reviewed before publishing it.
+- Review older certifications for currency. Both CV download links serve `public/assets/Melusi_Sibanda_CV.pdf`. When replacing the PDF, update the `v` query parameter in both links to the first 12 characters of its SHA-256 hash so browsers request the updated file.

@@ -75,7 +75,7 @@ export function GalaxyContact() {
             </li>
             <li>South Africa</li>
             <li>
-              <a href="/assets/Melusi_Sibanda_CV.pdf" download>
+              <a href="/assets/Melusi_Sibanda_CV.pdf?v=8a209a8ea015" download>
                 Download CV (PDF)
               </a>
             </li>

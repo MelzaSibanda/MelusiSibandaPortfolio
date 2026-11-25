@@ -23,7 +23,7 @@ export function GalaxyProfileHeader() {
         </Link>
         <a
           className="portfolio-button"
-          href="/assets/Melusi_Sibanda_CV.pdf"
+          href="/assets/Melusi_Sibanda_CV.pdf?v=8a209a8ea015"
           download
         >
           Download CV
